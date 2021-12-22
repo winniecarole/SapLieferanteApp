@@ -10,7 +10,7 @@ sap.ui.define([
 ], function ( Controller, Filter, FilterOperator, Sorter,formatter) {
 	"use strict";
 
-	return Controller.extend("com.uniq.suppliers.controller.Master", {
+	return Controller.extend("com.wins.suppliers.controller.Master", {
 		formatter: formatter,
 		_sPathSupplier : "",
 

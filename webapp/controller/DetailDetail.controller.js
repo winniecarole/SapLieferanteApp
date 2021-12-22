@@ -3,7 +3,7 @@ sap.ui.define([
 ], function ( Controller) {
 	"use strict";
 
-	return Controller.extend("com.uniq.suppliers.controller.DetailDetail", {
+	return Controller.extend("com.wins.suppliers.controller.DetailDetail", {
 		onInit : function () {
 			this.oView = this.getView();
 			this.getOwnerComponent().getRouter().getRoute("detailDetail").attachPatternMatched(this._onProductMatched, this);

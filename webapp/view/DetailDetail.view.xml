@@ -1,5 +1,5 @@
 <mvc:View
-	controllerName="com.uniq.suppliers.controller.DetailDetail"
+	controllerName="com.wins.suppliers.controller.DetailDetail"
 	xmlns="sap.f"
 	xmlns:m="sap.m"
 	xmlns:form="sap.ui.layout.form"

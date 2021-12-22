@@ -4,7 +4,7 @@ sap.ui.define([
 ], function ( Controller) {
 	"use strict";
 
-	return Controller.extend("com.uniq.suppliers.controller.Detail", {
+	return Controller.extend("com.wins.suppliers.controller.Detail", {
 		_sPathProduct : "",
 		onInit : function () {
 			

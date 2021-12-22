@@ -3,7 +3,7 @@
 	xmlns:m="sap.m"
 	xmlns:f="sap.f"
 	xmlns:l="sap.ui.layout"
-	controllerName="com.uniq.suppliers.controller.Detail"
+	controllerName="com.wins.suppliers.controller.Detail"
 	xmlns:form="sap.ui.layout.form"
 	xmlns:mvc="sap.ui.core.mvc">
 	<ObjectPageLayout
