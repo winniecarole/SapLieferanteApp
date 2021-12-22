@@ -1,0 +1,105 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "com.uniq.suppliers",
+		"type": "application",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+
+		"dataSources": {
+			"mainService": {
+				"uri": "/V2/Northwind/Northwind.svc/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
+	},
+
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "com.uniq.suppliers.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "flexibleColumnLayout"
+		},
+		"dependencies": {
+			"minUI5Version": "1.60.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.f": {},
+				"sap.uxap": {}
+
+			}
+		},
+		"config": {
+			"fullWidth": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.uniq.suppliers.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "com.uniq.suppliers.view",
+				"controlId": "flexibleColumnLayout",
+				"async": true
+			},
+
+			"routes": [
+				{
+					"pattern": "",
+					"name": "master",
+					"target": ["master"]
+				},
+				{
+					"pattern": "Suppliers/{supplierId}",
+					"name": "detail",
+					"target": ["detail_target","master"]
+				},
+				{
+					"pattern": "Suppliers/{supplierId}/detailDetail/{productId}",
+					"name": "detailDetail",
+					"target": ["detail_target","master","detailDetail_target"]
+				}
+			],
+
+			"targets": {
+				"master": {
+					"viewName": "Master",
+					"viewId": "master",
+					"controlAggregation": "beginColumnPages",
+					"viewLevel": 1
+
+				},
+				"detail_target": {
+					"viewName": "Detail",
+					"viewId": "detail",
+					"controlAggregation": "midColumnPages",
+					"viewLevel": 2
+				},
+				"detailDetail_target": {
+					"viewName": "DetailDetail",
+					"viewId": "detailDetail",
+					"controlAggregation": "endColumnPages"
+				}
+			}
+		}
+	}
+
+
+}

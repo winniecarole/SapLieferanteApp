@@ -1,0 +1,46 @@
+<mvc:View
+	controllerName="com.uniq.suppliers.controller.DetailDetail"
+	xmlns="sap.f"
+	xmlns:m="sap.m"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:mvc="sap.ui.core.mvc">
+	<DynamicPage toggleHeaderOnTitleClick="false">
+		<title>
+			<DynamicPageTitle>
+				<heading>
+					<m:FlexBox >
+						<m:Title text="{i18n>detailDetailHeadingTitle}" />
+					</m:FlexBox>
+				</heading>
+					<navigationActions>
+						<!--Transparent : permet de mettre le button X transparent-->
+						<m:OverflowToolbarButton type="Transparent" icon="sap-icon://decline" press="handleClose"  tooltip="{i18n>detailDetailToolpitClose}" />
+					</navigationActions>
+			</DynamicPageTitle>
+		</title>
+	    <content>
+			<form:SimpleForm
+					maxContainerCols="1"
+					editable="false"
+					layout="ResponsiveGridLayout"
+					labelSpanL="12"
+					labelSpanM="12"
+					emptySpanL="0"
+					emptySpanM="0"
+					columnsL="1"
+					columnsM="1">
+				<form:content>
+					<m:Label text="{i18n>detailDetailTableColumnName1}" />
+					<m:Input  enabled="false" id="name" value="{ProductName}">
+					</m:Input>
+					<m:Label text="{i18n>detailDetailTableColumnName2}" />
+					<m:Input enabled="false" value="{UnitsInStock}"/>
+					<m:Label text="{i18n>detailDetailTableColumnName3}" />
+					<m:Input enabled="false" value="{QuantityPerUnit}"/>
+					<m:Label text="{i18n>detailDetailTableColumnName4}" />
+					<m:Input enabled="false" value="{UnitPrice}"/>
+				</form:content>
+			</form:SimpleForm>
+		</content>
+	</DynamicPage>
+</mvc:View>

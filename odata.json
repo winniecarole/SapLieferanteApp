@@ -1,0 +1,6 @@
+{
+    "V2": {
+        "target": "https://services.odata.org",
+        "changeOrigin": true
+    }
+}

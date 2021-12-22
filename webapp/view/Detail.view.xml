@@ -1,0 +1,124 @@
+<mvc:View
+	xmlns="sap.uxap"
+	xmlns:m="sap.m"
+	xmlns:f="sap.f"
+	xmlns:l="sap.ui.layout"
+	controllerName="com.uniq.suppliers.controller.Detail"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:mvc="sap.ui.core.mvc">
+	<ObjectPageLayout
+		id="ObjectPageLayout"
+		showTitleInHeaderContent="true"
+		alwaysShowContentHeader="false"
+		preserveHeaderStateOnScroll="false"
+		headerContentPinnable="true"
+		isChildPage="true"
+		upperCaseAnchorBar="false">
+
+        <headerTitle>
+			<ObjectPageDynamicHeaderTitle>
+			  <expandedHeading>
+					<m:Title text="{CompanyName}" wrapping="true" class="sapUiSmallMarginEnd"/>
+				</expandedHeading>
+
+				<snappedHeading>
+					<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
+						<m:FlexBox wrap="NoWrap" fitContainer="true" alignItems="Center" class="sapUiTinyMarginEnd">
+							<m:Title text="{CompanyName}" wrapping="true"/>
+						</m:FlexBox>
+					</m:FlexBox>
+				</snappedHeading>
+				<navigationActions>
+					<m:OverflowToolbarButton type="Transparent" icon="sap-icon://decline" press="handleClose"  tooltip="Close middle column"/>
+				</navigationActions>
+			</ObjectPageDynamicHeaderTitle>
+		</headerTitle>
+
+        <sections>
+			<ObjectPageSection title="{i18n>detailObjectPageSectionTitle1}">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<form:SimpleForm
+								maxContainerCols="2"
+								editable="false"
+								layout="ResponsiveGridLayout"
+								labelSpanL="12"
+								labelSpanM="12"
+								emptySpanL="0"
+								emptySpanM="0"
+								columnsL="1"
+								columnsM="1">
+								<form:content>
+									<m:Label text="{i18n>detailContentLabel1}" />
+									<m:Input  enabled="false" id="name" value="{Address}">
+										<m:layoutData>
+											<l:GridData span="XL12 L12 M12 S12" />
+										</m:layoutData>
+									</m:Input>
+									<m:HBox class="sapUiTinyMarginTop">
+										<m:VBox class="sapUiSmallMarginEnd ">
+											<m:Label text="{i18n>detailContentLabel2}" />
+											<m:Input enabled="false" value="{PostalCode}" >
+												<m:layoutData>
+													<l:GridData span="XL1 L2 M4 S4" />
+												</m:layoutData>
+											</m:Input>
+										</m:VBox>
+										<m:VBox>
+											<m:Label text="City" />
+											<m:Input enabled="false" value="{City}" />
+										</m:VBox>
+									</m:HBox>
+									<m:Label text="{i18n>detailContentLabel3}" />
+									<m:Label text="{i18n>detailContentLabel4}" />
+									<m:Input enabled="false" value="{Phone}">
+									</m:Input>
+								</form:content>
+							</form:SimpleForm>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection title="{i18n>detailObjectPageSectionTitle2}">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<m:Table
+								id="productTable"
+								mode ="SingleSelectMaster"
+								itemPress="onProduktPress"
+								updateFinished="updateTableProductFinished"
+								items="{
+                                    path: 'Products',
+                                        sorter: {
+                                            path: 'ProductName'
+                                        }
+                                }">
+								<m:columns>
+									<m:Column/>
+								</m:columns>
+								<m:items>
+									<m:ColumnListItem type="Navigation" press="onProduktPress">
+										<m:cells>
+											<m:ObjectIdentifier text="{ProductName}"/>
+										</m:cells>
+									</m:ColumnListItem>
+								</m:items>
+							</m:Table>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+		<footer>
+			<m:OverflowToolbar>
+				<m:ToolbarSpacer/>
+				<m:Button type="Accept" text="{i18n>detailFloatButtonMaster1}"/>
+				<m:Button type="Reject" text="{i18n>detailFloatButtonMaster1}"/>
+			</m:OverflowToolbar>
+		</footer>
+
+	</ObjectPageLayout>
+</mvc:View>
